@@ -12,6 +12,11 @@ app = flask.Flask(__name__)
 
 _BUCKET_NAME = 'test-to-learn-image-uploads'
 
+@app.route('/')
+def root():
+    di = DisplayInfo('File Upload')
+    return flask.render_template('index.html', di)
+
 @app.route('/upload', methods=['POST'])
 def upload():
     di = DisplayInfo('File Upload')
